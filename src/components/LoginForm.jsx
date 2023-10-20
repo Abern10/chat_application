@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const projectID = '1b7801d6-8a66-4be4-a442-89219d833dfc';
+const projectID = '7624e3ff-71af-4dae-bd05-cfae3e3aa9d7';
 
-const Modal = () => {
+const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -21,18 +21,20 @@ const Modal = () => {
 
       window.location.reload();
       setError('');
-    } catch (err) {
-      setError('Oops, incorrect credentials.');
+    } catch (error) {
+      setError('Wrong username or password');
     }
   };
 
   return (
     <div className="wrapper">
       <div className="form">
-        <h1 className="title">Chat Application</h1>
+        <h1 className="title">Chat App</h1>
         <form onSubmit={handleSubmit}>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="Username" required />
+
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password" required />
+          
           <div align="center">
             <button type="submit" className="button">
               <span>Start chatting</span>
@@ -46,4 +48,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default LoginForm;
